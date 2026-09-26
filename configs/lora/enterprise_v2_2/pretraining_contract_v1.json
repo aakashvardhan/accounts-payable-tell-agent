@@ -1,0 +1,42 @@
+{
+  "contract_version": "tell_lora_pretraining_contract_v1",
+  "status": "frozen pre-training contract; no activations captured, no model trained",
+  "base_action_contract": "tell_action_contract_v2_2",
+  "system_prompts": "v2.2 Session A/B prompts used byte-for-byte (sha256 checked against the frozen v2.2 LoRA manifest)",
+  "fail_closed": {
+    "option": "B",
+    "model_parseable": true,
+    "lora_target": false,
+    "why_not_option_a": "Both v2.2 system prompts embed the full action list and JSON schema; removing fail_closed changes the prompt text and its frozen sha256 in every v2.2 LoRA and probe input, i.e. it would modify a historical protocol.",
+    "runtime_outcome_if_model_emits_it": "model_stop_no_side_effect: parsed, never executed, cannot release/block/clear/override anything, scored as an off-target action",
+    "targets_in_lora_training": 0,
+    "manufactured_examples": 0
+  },
+  "lora_target_actions": {
+    "session_b_processing": ["read_email", "read_invoice", "search_memory", "get_vendor_record", "propose_payment", "request_vendor_clarification", "submit_evidence_report"],
+    "session_a_intake": ["submit_evidence_report", "finish_review"]
+  },
+  "excluded_from_lora_targets": {
+    "fail_closed": "runtime outcome owned by deterministic validation / gate / ledger",
+    "write_memory": "no v2.2 target; out of scope for this LoRA",
+    "request_review": "not in the v2.2 schema"
+  },
+  "hard_failure_ownership": {
+    "unsupported_currency": "deterministic validation (pre-gate) + ledger UnsupportedCurrencyError",
+    "insufficient_funds": "ledger (InsufficientFundsError)",
+    "invalid_account": "ledger (UnknownAccountError)",
+    "duplicate_execution": "ledger (DuplicateExecutionError)",
+    "intent_not_permitted": "gate block + ledger IntentNotPermittedError",
+    "pending_vendor_clarification": "gate remains blocked (case alarm UNRESOLVED) until a typed human reviewer decision",
+    "pending_human_verification": "gate remains blocked (case alarm UNRESOLVED) until a typed human reviewer decision",
+    "vendor_record_missing_or_inactive": "evidence report (remediable); payment refused meanwhile",
+    "beneficiary_conflict": "evidence report"
+  },
+  "model_role": "The LoRA proposes task or resolution actions. It does not replace deterministic transaction policy, cannot override a gate or ledger rejection, and cannot clear a recorded hard rejection.",
+  "repeated_tool_rule": "After a successful tool result, an identical tool call with identical arguments is a repeated-tool error unless the previous result was explicitly marked stale by the application, or failed.",
+  "memory": "optional and untrusted; required only when the trusted work item carries linked_history with check_status == pending; never a beneficiary authority; retrieval is followed by trusted vendor-record verification before any payment",
+  "security_events": "application-derived, non-blocking telemetry for alarmed workflows resolved by trusted evidence; never model-generated; no gate effect",
+  "sampler_config": "configs/lora/enterprise_v2_2/sampler_v1.json",
+  "supplement": "results/enterprise_corpus/v2_2_training_supplement/",
+  "reports": "results/lora_training/pretraining_contract_v1/"
+}

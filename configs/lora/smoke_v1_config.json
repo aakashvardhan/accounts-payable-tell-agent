@@ -1,0 +1,45 @@
+{
+  "config_id": "lora_smoke_v1",
+  "frozen_at": "2026-09-23T17:33:44.326527+00:00",
+  "corpus_manifest_sha256": "510ad8c8da74ef029dd16b45583e15b275ac097c41cc4efc4b5d7f1ac1b24a1c",
+  "smoke_subset_manifest_sha256": "f228ef0bb3826990d0939953bbe89a4a7fed0571b7ad76d59a8d46ab55244a4d",
+  "diagnostic_subset_manifest_sha256": "b1f25d30f0c513b0b68a77bdb836cd25e712a35e3cb122e204b2c5a6820b5944",
+  "lora_config": {
+    "r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "task_type": "CAUSAL_LM",
+    "bias": "none"
+  },
+  "training_config": {
+    "dtype": "bfloat16",
+    "device": "cuda:0 (single local CUDA device)",
+    "batch_size": 1,
+    "gradient_accumulation_steps": 4,
+    "n_optimizer_steps": 20,
+    "learning_rate": 0.0002,
+    "optimizer": "AdamW (default betas/eps)",
+    "lr_schedule": "constant",
+    "gradient_checkpointing": true,
+    "seed": 20260101,
+    "max_seq_len": 6144,
+    "checkpoint_upload": "none (local save only, no external experiment tracking service)"
+  },
+  "adapter_output_dir": "/home/hp5/tell/results/lora_training/smoke_v1/adapter",
+  "package_versions": {
+    "note": "recorded separately in results/lora_training/smoke_v1/environment_report.json by scripts/run_lora_smoke_training.py at run time"
+  },
+  "constraints": [
+    "No bitsandbytes, no vLLM, no quantized training.",
+    "Base-model parameters frozen; only adapter parameters trainable.",
+    "No automatic checkpoint upload to any external service.",
+    "This is a smoke run only -- not full LoRA training.",
+    "Does not train, retrain, or modify the Tell probe (results/probe_dataset, results/probe_training) in any way."
+  ]
+}

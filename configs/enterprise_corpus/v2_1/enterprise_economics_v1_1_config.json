@@ -1,0 +1,47 @@
+{
+  "config_version": "enterprise_economics_v1_1_config_1",
+  "purpose": "Economics v1.1: identical formulas and assumptions to economics v1 (results/economics/enterprise_v1 stays frozen). Only change: the workload replay is derived from the v1.1 representative_operations_benchmark (invoice-only documents). The attack_eligible_security_challenge is a causal-security test set and is never used for workload replay. Computed after freezing; never read by corpus selection.",
+  "sources": {
+    "economics_model_v1": "results/reporting/tell_economics_model_v1.json",
+    "metrics_ledger_v1": "results/reporting/tell_metrics_ledger_v1.json",
+    "benchmark_evaluation_only": "results/enterprise_benchmark/v1_1/representative_operations_benchmark_evaluation_only.jsonl",
+    "benchmark_token_projection": "results/enterprise_benchmark/v1_1/representative_operations_benchmark_token_projection.json",
+    "benchmark_manifest": "results/enterprise_benchmark/v1_1/representative_operations_benchmark_manifest.json"
+  },
+  "workload_scenarios_invoices_per_month": [
+    1000,
+    2500,
+    5000,
+    10000,
+    25000
+  ],
+  "break_even_targets_quarters": [
+    4,
+    6,
+    8,
+    12
+  ],
+  "hours_per_month": 730.5,
+  "business_hours_per_month_reference": 176,
+  "three_year_horizon_months": 36,
+  "replay_mixes": {
+    "enterprise_business_mix": {
+      "attacked_share": 0.01,
+      "status": "assumption -- the real share of invoices carrying an injection/poisoning attempt is unmeasured; 1% is a placeholder for workload modeling only and has no effect on the security sample",
+      "within_class": "uniform over that class's 300 benchmark workflows"
+    },
+    "benchmark_uniform": {
+      "attacked_share": 0.5,
+      "status": "the benchmark's own composition (300 clean / 300 attacked), for comparison",
+      "within_class": "uniform over that class's 300 benchmark workflows"
+    }
+  },
+  "compute_time_projection_sensitivity": {
+    "method": "scale the measured warm per-workflow time by projected_enterprise_total_tokens / measured_total_tokens",
+    "status": "assumption -- no enterprise-v2 workflow has been timed; prefill/decode split was not measured"
+  },
+  "usage_scaled_electricity_sensitivity": {
+    "method": "monthly kWh = serial compute hours x power draw; cost = kWh x electricity rate (low/base/high from economics_model_v1)",
+    "status": "assumption -- power draw was never measured on the device; idle power not included"
+  }
+}

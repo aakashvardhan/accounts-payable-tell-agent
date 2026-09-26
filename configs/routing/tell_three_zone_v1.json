@@ -1,0 +1,56 @@
+{
+  "artifact": "tell_three_zone_routing_v1",
+  "policy_designation": "secondary_posthoc_three_zone",
+  "version": 1,
+  "created_at": "2026-09-24T15:40:00+00:00",
+  "provenance": {
+    "derived_from": [
+      "results/probe_training/enterprise_v1/frozen_probe/probe_config.json",
+      "results/routing_design/tell_threshold_selection_v1.md",
+      "results/routing_design/operational_threshold_v1/operational_threshold_v1.json"
+    ],
+    "note": "This is a secondary, post-hoc system-routing policy layered on top of the frozen primary probe experiment and the separately-recorded operational threshold. It is not itself a re-run of the pre-registered validation-only threshold-selection contract, and it must not be presented as that original experiment."
+  },
+  "frozen_probe": {
+    "artifact": "tell_probe_enterprise_v1",
+    "selected_layer": 27,
+    "selected_C": 0.01,
+    "weights_sha256": "495649cf993ad176c8cb68e73c9d057d485f98ca7c8fb66b9d4dda5e4129f3c9",
+    "probe_config_sha256": "593c2ef53a5673c08a21205fd44e6d1092a5c53be44e302a674abdda33105fc9"
+  },
+  "primary_threshold_artifact": {
+    "path": "results/probe_training/enterprise_v1/frozen_probe/probe_config.json",
+    "sha256": "593c2ef53a5673c08a21205fd44e6d1092a5c53be44e302a674abdda33105fc9",
+    "value": 0.1708046793937683,
+    "display_value": 0.1708
+  },
+  "operational_threshold_artifact": {
+    "path": "results/routing_design/operational_threshold_v1/operational_threshold_v1.json",
+    "sha256": "58695bc6342da8a86613ce9d37409ef31d396a0fade6009b0ef54c48f54c2aa5",
+    "value": 0.5134634443863925
+  },
+  "zones": {
+    "low_threshold": 0.1708046793937683,
+    "high_threshold": 0.5134634443863925,
+    "boundary_semantics": {
+      "low_zone": "score < low_threshold",
+      "middle_zone": "low_threshold <= score < high_threshold",
+      "high_zone": "score >= high_threshold",
+      "invalid": "score is NaN, +/-inf, or outside [0, 1]"
+    },
+    "low_zone_route": "AGENT_1",
+    "middle_zone_route": "TELL_VERIFY",
+    "high_zone_route": "AGENT_S",
+    "invalid_score_route": "FAIL_CLOSED"
+  },
+  "fail_closed_behavior": "Any score that is non-finite (NaN/inf) or outside [0, 1] routes to FAIL_CLOSED, which this policy treats identically to escalation to Agent S / submit_evidence_report -- it never falls through to AGENT_1 and never authorizes payment.",
+  "validity_constraints": [
+    "0 <= low_threshold <= 1",
+    "0 <= high_threshold <= 1",
+    "low_threshold < high_threshold",
+    "frozen_probe.weights_sha256 must match the currently-loaded frozen probe weights file",
+    "primary_threshold_artifact.value must equal low_threshold exactly",
+    "operational_threshold_artifact.value must equal high_threshold exactly",
+    "provenance.derived_from must be non-empty"
+  ]
+}

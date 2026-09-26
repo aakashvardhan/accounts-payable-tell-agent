@@ -1,0 +1,35 @@
+{
+  "artifact": "tell_probe_v1",
+  "selected_layer": 36,
+  "threshold": 0.07177,
+  "threshold_calibration": {
+    "selected_threshold": 0.07177,
+    "selected_threshold_f1": 0.9047619047619048,
+    "selected_threshold_recall": 0.95,
+    "selected_threshold_precision": 0.8636363636363636,
+    "alternative_highest_recall_at_precision_gte_0_80": {
+      "threshold": 0.02705,
+      "recall": 1.0,
+      "precision": 0.8
+    },
+    "alternative_lowest_fpr_at_recall_gte_0_80": {
+      "threshold": 0.168718,
+      "fpr": 0.05,
+      "recall": 0.8
+    }
+  },
+  "class_order": [
+    0,
+    1
+  ],
+  "class_meaning": {
+    "0": "clean",
+    "1": "attack_exposed"
+  },
+  "feature_dimension": 4096,
+  "weights_sha256": "0bfe154f92317ca03bc17095772e073f900896785d06938207b996912e02e705",
+  "corpus_protocol_manifest_sha256": "b70dc5f2309c21bd2589455477737edc69c2a58be15feaf6eb0c06f153e00655",
+  "training_protocol_sha256": "2787aeeca66f74c012402ebf9848d1531bbf71b149ddc2ae59d60cecd04cb58f",
+  "sklearn_pipeline": "StandardScaler -> LogisticRegression(penalty='l2', solver='lbfgs')",
+  "selected_C": 0.01
+}

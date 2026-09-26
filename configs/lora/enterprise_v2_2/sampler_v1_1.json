@@ -1,0 +1,24 @@
+{
+  "sampler_version": "tell_lora_action_stratified_sampler_v1_1_coverage_first",
+  "contract_version": "tell_lora_pretraining_contract_v1_1",
+  "supersedes": "configs/lora/enterprise_v2_2/sampler_v1.json (unchanged, not modified; that config and its report remain the historical record of the v1 sampler's coverage defect)",
+  "base_corpus": "enterprise_corpus_v2_2 (frozen, unchanged)",
+  "pool_sources": {
+    "lora_v2_2": "results/enterprise_corpus/v2_2/lora_v2_2_labels.jsonl (split == train only)",
+    "lora_v2_2_memory_supplement_v1": "results/enterprise_corpus/v2_2_training_supplement/memory_supplement_v1_manifest.json (split == train only)"
+  },
+  "pool_splits": ["train"],
+  "seed": 20260923,
+  "epoch_size": 1655,
+  "epoch_size_rule": "unchanged from v1: fixed constant = n_nonGVR + floor(gvr_cap * n_nonGVR / (1 - gvr_cap)) for the frozen pool; the sampler raises if the pool no longer matches instead of changing it",
+  "gvr_cap": 0.30,
+  "expected_gvr_pool_size": 1071,
+  "expected_gvr_v2_2": 831,
+  "expected_gvr_supplement": 240,
+  "correction_from_v1": "v1 pinned the supplement's 240 GVR rows as always-included 'priority' items in every epoch and re-ran document water-filling from a zero count each epoch, which deterministically reselected close to the same v2.2 GVR items every time (~350 of 831 ever seen across 3 epochs). v1.1 removes the priority pin and instead lets all 1,071 v2.2+supplement GVR items compete equally for the same 496 GVR slots/epoch, filled by cross-epoch coverage-first selection (unseen items first, lowest cumulative per-document exposure among unseen, deterministic per-epoch seeded tie-break, repeats only after the whole pool is covered once).",
+  "gvr_selection": "coverage_first: unseen items first (ordered by lowest cumulative per-document exposure, ties broken by sha256(seed:epoch:'gvr':sample_id)); once the pool is fully covered, repeats are drawn by the same lowest-document-exposure-first rule",
+  "epoch_order": "sha256(seed:epoch:order:sample_id)",
+  "max_item_repeats_per_epoch": 1,
+  "planned_epochs": 3,
+  "validation_and_test": "never sampled, reweighted, or rebalanced; evaluated at their natural v2.2 distribution, with the memory supplement reported separately (unchanged from v1)"
+}

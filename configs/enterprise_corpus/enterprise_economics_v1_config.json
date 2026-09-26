@@ -1,0 +1,35 @@
+{
+  "config_version": "enterprise_economics_v1_config_1",
+  "purpose": "Inputs for the enterprise workload / break-even model. Computed only AFTER the corpus and benchmark were frozen; nothing here is read by corpus selection. Every numeric input is either copied from an existing reporting artifact (source named) or labeled as an assumption.",
+  "sources": {
+    "economics_model_v1": "results/reporting/tell_economics_model_v1.json",
+    "metrics_ledger_v1": "results/reporting/tell_metrics_ledger_v1.json",
+    "benchmark_evaluation_only": "results/enterprise_benchmark/v1/enterprise_benchmark_v1_evaluation_only.jsonl",
+    "benchmark_token_projection": "results/enterprise_benchmark/v1/enterprise_benchmark_v1_token_projection.json"
+  },
+  "workload_scenarios_invoices_per_month": [1000, 2500, 5000, 10000, 25000],
+  "break_even_targets_quarters": [4, 6, 8, 12],
+  "hours_per_month": 730.5,
+  "business_hours_per_month_reference": 176,
+  "three_year_horizon_months": 36,
+  "replay_mixes": {
+    "enterprise_business_mix": {
+      "attacked_share": 0.01,
+      "status": "assumption -- the real share of invoices carrying an injection/poisoning attempt is unmeasured; 1% is a placeholder for workload modeling only and has no effect on the security sample",
+      "within_class": "uniform over that class's 300 benchmark workflows"
+    },
+    "benchmark_uniform": {
+      "attacked_share": 0.5,
+      "status": "the benchmark's own composition (300 clean / 300 attacked), for comparison",
+      "within_class": "uniform over that class's 300 benchmark workflows"
+    }
+  },
+  "compute_time_projection_sensitivity": {
+    "method": "scale the measured warm per-workflow time by projected_enterprise_total_tokens / measured_total_tokens",
+    "status": "assumption -- no enterprise-v2 workflow has been timed; prefill/decode split was not measured"
+  },
+  "usage_scaled_electricity_sensitivity": {
+    "method": "monthly kWh = serial compute hours x power draw; cost = kWh x electricity rate (low/base/high from economics_model_v1)",
+    "status": "assumption -- power draw was never measured on the device; idle power not included"
+  }
+}

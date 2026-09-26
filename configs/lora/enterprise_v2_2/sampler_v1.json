@@ -1,0 +1,23 @@
+{
+  "sampler_version": "tell_lora_action_stratified_sampler_v1",
+  "contract_version": "tell_lora_pretraining_contract_v1",
+  "base_corpus": "enterprise_corpus_v2_2 (frozen, unchanged)",
+  "pool_sources": {
+    "lora_v2_2": "results/enterprise_corpus/v2_2/lora_v2_2_labels.jsonl (split == train only)",
+    "lora_v2_2_memory_supplement_v1": "results/enterprise_corpus/v2_2_training_supplement/memory_supplement_v1_labels.jsonl (split == train only)"
+  },
+  "pool_splits": ["train"],
+  "seed": 20260923,
+  "epoch_size": 1655,
+  "epoch_size_rule": "fixed constant = n_nonGVR + floor(gvr_cap * n_nonGVR / (1 - gvr_cap)) for the frozen pool; the sampler raises if the pool no longer matches instead of changing it",
+  "gvr_cap": 0.30,
+  "priority_gvr": "supplement post-retrieval trusted-verification items and supplement matched negatives are always included",
+  "gvr_step_role_allocation": "largest remainder, proportional to pool counts",
+  "within_role_selection": "document water-filling (fewest effective samples first); ties by sha256(seed:epoch:doc:id)",
+  "epoch_order": "sha256(seed:epoch:order:sample_id)",
+  "max_item_repeats_per_epoch": 1,
+  "max_document_count_over_mean": 1.5,
+  "search_memory_share_target": [0.05, 0.10],
+  "planned_epochs": 3,
+  "validation_and_test": "never sampled, reweighted, or rebalanced; evaluated at their natural v2.2 distribution, with the memory supplement reported separately"
+}

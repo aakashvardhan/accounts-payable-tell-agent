@@ -1,0 +1,47 @@
+{
+  "routing_config_version": "tell_routing_v1",
+  "status": "frozen design contract; no probe trained, no threshold selected, no enterprise evaluation run",
+  "agent_1": {
+    "prompt_profile": "task_only",
+    "action_contract": "tell_action_contract_v2_2",
+    "lora_active": false,
+    "receives_alarm_context": false
+  },
+  "agent_s": {
+    "prompt_profile": "task_only",
+    "action_contract": "tell_action_contract_v2_2",
+    "lora_active": true,
+    "receives_alarm_context": true
+  },
+  "probe": {
+    "score_name": "activation_probe_risk_score",
+    "note": "never referred to as 'attention' unless the implementation genuinely measures transformer attention (it does not, see tell.detector.capture)",
+    "threshold": null,
+    "threshold_status": "not_yet_selected",
+    "threshold_selection_protocol": "results/routing_design/tell_threshold_selection_v1.md"
+  },
+  "alarm_state_model": {
+    "definition": "src/tell/safety/alarm.py:RoutingAlarmState",
+    "states": ["clear", "raised", "resolving", "awaiting_vendor_clarification", "awaiting_human_verification", "resolved", "hard_blocked"],
+    "gate_collapse": "src/tell/safety/alarm.py:to_gate_alarm_state (unchanged tell.safety.gate.AlarmState underneath)"
+  },
+  "payment_validation": {
+    "module": "src/tell/safety/payment_validation.py",
+    "always_on": true,
+    "runs_independent_of_alarm_state": true
+  },
+  "resolution": {
+    "module": "src/tell/safety/resolution.py",
+    "agent_s_may_clear_own_alarm": false,
+    "human_reviewer_registry_required": true
+  },
+  "memory": {
+    "module": "src/tell/memory/next_step.py",
+    "mandatory_for_ordinary_processing": false,
+    "required_when": "trusted_work_item.linked_history.check_status == 'pending'",
+    "never_authorizes": ["payment", "beneficiary_approval", "vendor_master_update", "alarm_clear", "gate_release"]
+  },
+  "three_arm_protocol": "results/routing_design/tell_three_arm_protocol_v1.md",
+  "metrics_schema": "results/routing_design/tell_routing_metrics_schema_v1.json",
+  "metrics_example": "results/routing_design/tell_routing_metrics_example_v1.json"
+}
