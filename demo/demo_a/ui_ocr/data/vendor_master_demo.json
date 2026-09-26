@@ -1,0 +1,14 @@
+{
+  "contract": "tell.demo_vendor_master/1.0",
+  "label": "DEMO VENDOR MASTER — SYNTHETIC FIXTURE",
+  "vendors": [
+    {"vendor_id": "VND-IMAGINARY-FREIGHT", "vendor_name": "Imaginary Freight Co", "aliases": [],
+     "approved_contact_email": "accounts-receivable@imaginary-freight.example", "approved_contact_verified": true, "canonical_currency": null},
+    {"vendor_id": "VND-FICTIONAL-OFFICE", "vendor_name": "Fictional Office Supplies Ltd", "aliases": [],
+     "approved_contact_email": "ar@fictional-office.example", "approved_contact_verified": true, "canonical_currency": "EUR"},
+    {"vendor_id": "VND-UNVERIFIED-CONTACT", "vendor_name": "Unverified Contact GmbH", "aliases": [],
+     "approved_contact_email": "billing@unverified-contact.example", "approved_contact_verified": false, "canonical_currency": null},
+    {"vendor_id": "VND-NO-CONTACT", "vendor_name": "No Contact Trading Ltd", "aliases": [],
+     "approved_contact_email": null, "approved_contact_verified": false, "canonical_currency": null}
+  ]
+}

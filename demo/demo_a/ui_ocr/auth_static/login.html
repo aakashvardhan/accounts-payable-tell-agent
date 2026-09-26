@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Tell — Sign in</title>
+<link rel="stylesheet" href="/auth/login.css">
+</head>
+<body>
+<main class="wrap">
+  <form id="login" class="card" autocomplete="off" novalidate>
+    <div class="brand"><span class="logo" aria-hidden="true"></span><div><b>Tell</b><small>Accounts-payable security runtime</small></div></div>
+    <h1>Sign in to the demo</h1>
+    <p class="muted">Enter the demo passcode you were given. Use synthetic invoices only — uploads are visible to everyone signed in.</p>
+    <label for="passcode">Demo passcode</label>
+    <input id="passcode" name="passcode" type="password" autocomplete="current-password" spellcheck="false" required autofocus>
+    <button id="submit" type="submit">Sign in</button>
+    <p id="error" class="error" role="alert" hidden></p>
+  </form>
+</main>
+<script src="/auth/login.js"></script>
+</body>
+</html>
