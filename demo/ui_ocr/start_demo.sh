@@ -12,10 +12,10 @@ fi
 rm -f "$RUN/server.json"
 cd "$D" || exit 1
 echo "=== start $(date -Is) ===" >> "$LOG"
-nohup setsid /usr/bin/python3 "$D/server.py" "$@" >> "$LOG" 2>&1 &
+nohup setsid "${PYTHON3:-python3}" "$D/server.py" "$@" >> "$LOG" 2>&1 &
 echo $! > "$PIDF"
 i=0; while [ $i -lt 50 ]; do [ -f "$RUN/server.json" ] && break; i=$((i+1)); sleep 0.1; done
 [ -f "$RUN/server.json" ] || { echo "server failed to start; see $LOG"; rm -f "$PIDF"; tail -5 "$LOG"; exit 1; }
-PORT="$(/usr/bin/python3 -c "import json;print(json.load(open('$RUN/server.json'))['port'])")"
+PORT="$("${PYTHON3:-python3}" -c "import json;print(json.load(open('$RUN/server.json'))['port'])")"
 curl -fsS "http://127.0.0.1:$PORT/healthz" && echo || { echo "health check failed; see $LOG"; exit 1; }
 tail -n 6 "$LOG" | grep -E "listening|Nano-local|Same-network|unavailable|internet"

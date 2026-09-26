@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "tests"))
 import intake as I  # noqa: E402
 from test_intake import make_pdf  # noqa: E402
 
-VENV_PY = Path("/home/hp5/tell/.venv/bin/python")
+VENV_PY = Path(__file__).resolve().parents[3] / ".venv" / "bin" / "python"
 VENDOR = "Fictional Office Supplies Ltd"
 
 

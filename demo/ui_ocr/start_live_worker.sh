@@ -14,5 +14,6 @@ ARGS=""; for d in "$@"; do ARGS="$ARGS --runtime-dir $d"; done
 [ -n "$ARGS" ] || { echo "usage: $0 <runtime-dir> [...]"; exit 2; }
 echo "=== start $(date -Is) ===" >> "$LOG"
 cd "$D" || exit 1
-nohup setsid /home/hp5/tell/.venv/bin/python "$D/live/worker.py" $ARGS >> "$LOG" 2>&1 &
+PY="${TELL_PYTHON:-$(cd "$D/../.." && pwd)/.venv/bin/python}"
+nohup setsid "$PY" "$D/live/worker.py" $ARGS >> "$LOG" 2>&1 &
 echo $! > "$PIDF"; echo "live worker starting (pid $(cat $PIDF)); log: $LOG"

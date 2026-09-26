@@ -26,6 +26,7 @@ other.
 from __future__ import annotations
 
 import gc
+import os
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -35,8 +36,11 @@ from transformers import AutoTokenizer, Qwen3ForCausalLM
 
 PINNED_MODEL_REPO_ID = "Qwen/Qwen3-8B"
 PINNED_MODEL_REVISION = "b968826d9c46dd6066d109eabc6255188de91218"
+# TELL_MODEL_SNAPSHOT overrides; otherwise the standard Hugging Face hub cache (HF_HUB_CACHE / HF_HOME / ~/.cache).
+_HF_HUB_CACHE = Path(os.environ.get("HF_HUB_CACHE") or Path(os.environ.get("HF_HOME", Path.home() / ".cache" / "huggingface")) / "hub")
 PINNED_SNAPSHOT_PATH = Path(
-    "/home/hp5/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/" + PINNED_MODEL_REVISION
+    os.environ.get("TELL_MODEL_SNAPSHOT")
+    or _HF_HUB_CACHE / "models--Qwen--Qwen3-8B" / "snapshots" / PINNED_MODEL_REVISION
 )
 
 

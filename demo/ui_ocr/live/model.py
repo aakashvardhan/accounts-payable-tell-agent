@@ -23,7 +23,7 @@ from tell.agent.local_model import PINNED_MODEL_REPO_ID, PINNED_MODEL_REVISION
 from tell.detector.capture import CaptureRequest, capture_predecision_activations, save_activation_artifact
 from tell.safety.adapter_runtime import AdapterAwareRuntime
 
-REPO = Path("/home/hp5/tell")
+REPO = Path(__file__).resolve().parents[3]
 FROZEN_ADAPTER = REPO / "results/lora_training/agent_s_v1/frozen_adapter"
 FROZEN_PROBE = REPO / "results/probe_training/enterprise_v1/frozen_probe"
 OPERATIONAL_ARTIFACT = REPO / "results/routing_design/operational_threshold_v1/operational_threshold_v1.json"

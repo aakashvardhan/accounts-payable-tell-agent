@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Live runtime worker. Run with the project's Python (torch/peft/transformers), e.g.
 
-    /home/hp5/tell/.venv/bin/python demo/ui_ocr/live/worker.py --runtime-dir demo/ui_ocr/runtime [--runtime-dir demo/ui_ocr/runtime_public]
+.venv/bin/python demo/ui_ocr/live/worker.py --runtime-dir demo/ui_ocr/runtime [--runtime-dir demo/ui_ocr/runtime_public]
 
 One process, one copy of Qwen3-8B + the frozen LoRA + the frozen probe; GPU inference is serialised (one job at a time). It serves any
 number of isolated runtime directories (each with its own jobs.sqlite, ledger, outbox and review store), round-robin.

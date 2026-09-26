@@ -17,7 +17,7 @@ import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 
-REPO = Path("/home/hp5/tell")
+REPO = Path(__file__).resolve().parents[3]
 for p in (REPO / "src", REPO / "scripts"):
     if str(p) not in sys.path:
         sys.path.insert(0, str(p))
