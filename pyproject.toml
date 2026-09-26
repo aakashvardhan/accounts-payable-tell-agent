@@ -10,18 +10,17 @@ readme = "README.md"
 requires-python = ">=3.11,<3.13"
 license = { text = "Proprietary" }
 
-# Dependency versions are intentionally unpinned at this scaffolding stage.
-# Nothing in this list has been installed yet. See CLAUDE.md for the
-# local-inference constraint that governs how these are used.
+# Pinned versions used for the prototype are in requirements.txt (installed by setup.sh).
 dependencies = [
     "torch",
     "transformers",
     "peft",
+    "accelerate",
+    "safetensors",
+    "numpy",
+    "scipy",
     "scikit-learn",
     "pydantic",
-    "fastapi",
-    "uvicorn",
-    "streamlit",
 ]
 
 [project.optional-dependencies]
