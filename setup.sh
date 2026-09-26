@@ -47,7 +47,8 @@ fi
 if [ ${#MISSING[@]} -gt 0 ]; then
   PKGS="$(printf '%s\n' "${MISSING[@]}" | sort -u | tr '\n' ' ')"
   warn "missing: $PKGS-> sudo apt-get install -y $PKGS"
-  warn "without Poppler the UI cannot read uploaded PDFs; without Tesseract scanned PDFs are not OCR'd"
+  case "$PKGS" in *poppler*) warn "without Poppler the UI cannot read uploaded PDFs" ;; esac
+  case "$PKGS" in *tesseract*) warn "without Tesseract scanned PDFs are not OCR'd" ;; esac
 else
   ok "poppler-utils"
 fi
