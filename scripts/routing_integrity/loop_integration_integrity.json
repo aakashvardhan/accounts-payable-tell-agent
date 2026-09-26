@@ -1,0 +1,78 @@
+{
+  "protected_roots": [
+    "results/activations",
+    "results/dataset_inspection",
+    "results/economics",
+    "results/enterprise_benchmark",
+    "results/enterprise_corpus",
+    "results/evaluation",
+    "results/lora_dataset",
+    "results/lora_training",
+    "results/probe_dataset",
+    "results/probe_training",
+    "results/reporting",
+    "results/routing_design",
+    "results/runtime",
+    "results/scenario_design",
+    "results/traces",
+    "data/scenarios",
+    "configs",
+    "src",
+    "scripts",
+    "tests"
+  ],
+  "n_files_before": 764,
+  "n_files_after": 764,
+  "n_missing": 0,
+  "n_changed": 2,
+  "n_added": 0,
+  "missing_files": [],
+  "changed_files": [
+    "src/tell/agent/loop.py",
+    "tests/test_agent_loop.py"
+  ],
+  "unexpected_changed_files": [],
+  "added_files": [],
+  "unexpected_added_files": [],
+  "frozen_manifest_sha256_check": {
+    "v2": {
+      "manifest": "results/enterprise_corpus/v2/enterprise_corpus_v2_manifest.json",
+      "manifest_sha256": "d326acb4c87ad7eaedea2c24fce7c27ccde0b1d2ba132a416d2756146d5408f0",
+      "n_files_checked": 10,
+      "mismatched": [],
+      "byte_identical": true
+    },
+    "v2_1": {
+      "manifest": "results/enterprise_corpus/v2_1/enterprise_corpus_v2_1_manifest.json",
+      "manifest_sha256": "0e2142a3349411827fc39dfef037441f39f86dd277a4cf7946cf70bb0ac13793",
+      "n_files_checked": 20,
+      "mismatched": [],
+      "byte_identical": true
+    },
+    "v2_2": {
+      "manifest": "results/enterprise_corpus/v2_2/enterprise_corpus_v2_2_manifest.json",
+      "manifest_sha256": "a41b27a6461120375ceb438a0f9b0cbd74d3d85a5444d6815c14bd692ffef684",
+      "n_files_checked": 18,
+      "mismatched": [],
+      "byte_identical": true
+    },
+    "v2_2_training_supplement": {
+      "manifest": "results/enterprise_corpus/v2_2_training_supplement/memory_supplement_v1_manifest.json",
+      "manifest_sha256": "48a35c4b322430d43d9dcbb39e8e7119b9e36b15c44b6c769d20a6717b545ce1",
+      "n_files_checked": 3,
+      "mismatched": [],
+      "byte_identical": true
+    },
+    "pretraining_contract_v1": {
+      "manifest": "results/lora_training/pretraining_contract_v1/pretraining_contract_v1_manifest.json",
+      "manifest_sha256": "c5b7a05de68ea65a82f3f9d74cd759d779733e014059b74739697668afc419f7",
+      "n_files_checked": 1,
+      "mismatched": [],
+      "byte_identical": true
+    }
+  },
+  "docile_dataset_unchanged": true,
+  "integrity_ok": true,
+  "before_snapshot": "scripts/routing_integrity/loop_integration_hashes_before.json",
+  "after_snapshot": "scripts/routing_integrity/loop_integration_hashes_after.json"
+}
