@@ -1,0 +1,1 @@
+"""LoRA pre-training contract v1 for enterprise corpus v2.2 (frozen, unchanged): hard-failure ownership, action-stratified sampler, optional-memory training supplement, non-blocking security events, and evaluation metrics."""
