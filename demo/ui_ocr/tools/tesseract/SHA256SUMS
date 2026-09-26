@@ -1,0 +1,5 @@
+ade7e6886511ab34b36ce5207ce4f00f1b030a6939fcdac4a9c1d6eaf3d83284  debs/liblept5_1.82.0-3build4_arm64.deb
+e0c53e9b7f5b42f0250b288d5a4d3590ea5bf09ab5e937a8b05a0fbc56d63eea  debs/libtesseract5_5.3.4-1build5_arm64.deb
+d6e51e837f5eb9038628e84d8539a4f1fe6643e26f8db4946a397a710601e536  debs/tesseract-ocr_5.3.4-1build5_arm64.deb
+b1996b3113c78663f4dd16cf18aa1f288b07e9624f8d4a0ddbd7d9b52a234ba7  debs/tesseract-ocr-eng_1%3a4.1.0-2_all.deb
+a266496b3268134493808c1595c9d16ac92c7e1c28e3e0bf46fdb322df95ca68  debs/tesseract-ocr-osd_1%3a4.1.0-2_all.deb

@@ -1,0 +1,22 @@
+### FINAL held-out validation (120 docs, all types)
+
+== val: 120 docs  (decision mix: {'READY': 0, 'CLARIFY': 2, 'REVIEW': 118})
+field                   gold  correct  wrong  ambig  missing  spurious |  recall precision
+supplier_name            109       51     25      8       25         3 |     47%       67%
+invoice_number            88       47     15      1       25         8 |     53%       76%
+invoice_date             101       49     13      1       38         7 |     49%       79%
+due_date                  12        4      2      0        6         0 |     33%       67%
+amount                   105       49     15     24       17         8 |     47%       77%
+beneficiary_account        2        1      0      0        1         1 |     50%      100%
+currency                  74        0      0     54       20         0 |      0%       n/a
+### FINAL held-out validation, payable invoices only
+
+== val [only tax_invoice]: 79 docs  (decision mix: {'READY': 0, 'CLARIFY': 2, 'REVIEW': 77})
+field                   gold  correct  wrong  ambig  missing  spurious |  recall precision
+supplier_name             70       34     11      6       19         2 |     49%       76%
+invoice_number            62       30     11      1       20         5 |     48%       73%
+invoice_date              68       35     10      1       22         5 |     51%       78%
+due_date                  10        4      2      0        4         0 |     40%       67%
+amount                    69       37      8      9       15         5 |     54%       82%
+beneficiary_account        2        1      0      0        1         1 |     50%      100%
+currency                  52        0      0     34       18         0 |      0%       n/a

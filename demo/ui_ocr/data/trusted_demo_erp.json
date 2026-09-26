@@ -1,0 +1,105 @@
+{
+ "contract": "tell.demo_trusted_erp/1.0",
+ "label": "TRUSTED DEMO ERP \u2014 SYNTHETIC FIXTURE (stands in for a real ERP / PO system; not real data)",
+ "company_accounts": [
+  {
+   "account_id": "ACCT-COMPANY-EUR",
+   "currency": "eur",
+   "balance_minor_units": 50000000
+  },
+  {
+   "account_id": "ACCT-COMPANY-GBP",
+   "currency": "gbp",
+   "balance_minor_units": 50000000
+  },
+  {
+   "account_id": "ACCT-COMPANY-USD",
+   "currency": "usd",
+   "balance_minor_units": 50000000
+  }
+ ],
+ "invoices": [
+  {
+   "erp_invoice_id": "ERP-INV-0001",
+   "vendor_id": "VND-FICTIONAL-OFFICE",
+   "invoice_number": "FOS-2026-0417",
+   "amount_minor_units": 43050,
+   "currency": "eur",
+   "note": "open, approved for payment"
+  },
+  {
+   "erp_invoice_id": "ERP-INV-0002",
+   "vendor_id": "VND-FICTIONAL-OFFICE",
+   "invoice_number": "FOS-2026-0418",
+   "amount_minor_units": 12000,
+   "currency": "eur",
+   "note": "already paid (seeded prior payment)",
+   "seed_prior_payment": true
+  },
+  {
+   "erp_invoice_id": "ERP-INV-0003",
+   "vendor_id": "VND-FICTIONAL-OFFICE",
+   "invoice_number": "FOS-2026-0419",
+   "amount_minor_units": 25500,
+   "currency": "eur",
+   "note": "under an open dispute"
+  },
+  {
+   "erp_invoice_id": "ERP-INV-0101",
+   "vendor_id": "VND-CLEARLINE-DATA",
+   "invoice_number": "CDS-2609-1188",
+   "amount_minor_units": 1157500,
+   "currency": "usd",
+   "note": "open, approved for payment (demo invoice set)"
+  },
+  {
+   "erp_invoice_id": "ERP-INV-0102",
+   "vendor_id": "VND-RIDGEWAY-CONTROLS",
+   "invoice_number": "RIC-2026-0944",
+   "amount_minor_units": 693228,
+   "currency": "usd",
+   "note": "open, approved for payment (demo invoice set)"
+  },
+  {
+   "erp_invoice_id": "ERP-INV-0103",
+   "vendor_id": "VND-SUMMIT-FACILITIES",
+   "invoice_number": "SFG-SEP26-779",
+   "amount_minor_units": 633096,
+   "currency": "usd",
+   "note": "open, approved for payment (demo invoice set)"
+  },
+  {
+   "erp_invoice_id": "ERP-INV-0104",
+   "vendor_id": "VND-GRANITE-CLOUD",
+   "invoice_number": "GCS-2026-09102",
+   "amount_minor_units": 809061,
+   "currency": "usd",
+   "note": "open, approved for payment (demo invoice set)"
+  },
+  {
+   "erp_invoice_id": "ERP-INV-0106",
+   "vendor_id": "VND-MERIDIAN-MEDLOG",
+   "invoice_number": "MML-260923-611",
+   "amount_minor_units": 468300,
+   "currency": "usd",
+   "note": "open, approved for payment (demo invoice set)"
+  },
+  {
+   "erp_invoice_id": "ERP-INV-0100",
+   "vendor_id": "VND-NORTHSTAR-OFFICE",
+   "invoice_number": "NS-260915-1847",
+   "amount_minor_units": 495625,
+   "currency": "usd",
+   "note": "open, approved for payment (demo invoice set)"
+  }
+ ],
+ "disputes": [
+  {
+   "case_id": "DISPUTE-0003",
+   "vendor_id": "VND-FICTIONAL-OFFICE",
+   "invoice_number": "FOS-2026-0419",
+   "status": "open",
+   "permitted_resolution_classification": "requires_human_review"
+  }
+ ]
+}
