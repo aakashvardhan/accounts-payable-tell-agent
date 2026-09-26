@@ -1,6 +1,6 @@
 # Versions the prototype was run with on the HP ZGX Nano (Python 3.12, CUDA 13.0).
 # torch is installed separately by setup.sh so the CUDA wheel matches the machine.
-transformers==4.57.6
+transformers==5.10.1
 peft==0.21.0
 accelerate==1.15.0
 safetensors==0.8.0
