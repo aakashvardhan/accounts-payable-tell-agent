@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tell"
+version = "0.1.0"
+description = "Tell: a local security runtime for an autonomous accounts-payable agent, combining an instrumented local model, an activation probe, a safety LoRA, and a deterministic action gate."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "Proprietary" }
+
+# Dependency versions are intentionally unpinned at this scaffolding stage.
+# Nothing in this list has been installed yet. See CLAUDE.md for the
+# local-inference constraint that governs how these are used.
+dependencies = [
+    "torch",
+    "transformers",
+    "peft",
+    "scikit-learn",
+    "pydantic",
+    "fastapi",
+    "uvicorn",
+    "streamlit",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tell"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "scripts"]

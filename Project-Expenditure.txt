@@ -1,0 +1,1 @@
+One key idea that I want is to measure the latency, tokens used, tokens/s etc. and develop a break even. As a pitch it would be interesting to show how a payment agent deployed on hp zgx nano (USD 6500 approx) could break even in how many quarters. 

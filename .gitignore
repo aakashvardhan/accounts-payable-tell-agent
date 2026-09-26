@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.venv-inspect/
+
+# Environment / secrets
+.env
+.env.*
+*.key
+*.pem
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local data and model artifacts (never committed; device-local only)
+data/docile/
+data/docile_samples/*
+!data/docile_samples/.gitkeep
+data/scenarios/*
+!data/scenarios/.gitkeep
+*.sqlite
+*.sqlite3
+*.db
+
+# Model weights, adapters, and activation dumps
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+models/
+adapters/
+activations/
+
+# Results and generated artifacts
+results/*
+!results/.gitkeep
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Demo runtime state (logs, pids, tunnel binaries, uploads, job DBs)
+demo/**/run/
+demo/**/runtime/
+*.sqlite-wal
+*.sqlite-shm
+*.log
+*.pid
+
+# Agent-assistant notes (kept local)
+CLAUDE.md
+TELL_CONTEXT_FOR_FRONTEND.md
+docs/TELL_CANONICAL_TECHNICAL_REPORT.md

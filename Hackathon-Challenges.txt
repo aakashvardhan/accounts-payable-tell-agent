@@ -1,0 +1,97 @@
+Hackathon Challenges
+Six Edge AI-focused tracks — all running on fully local or hybrid. Connect to our HP ZGX Nano GB 10 and build real AI without cloud API limits.
+
+Your Journey
+From idea to demo — in one week.
+🎯
+Your Mission
+→
+📊
+Choose a Track
+→
+🖥️
+Build on HP ZGX Nano™
+→
+🔧
+What You Can Use
+→
+⚖️
+Judging Criteria
+→
+📦
+What to Submit
+→
+⏰
+Deadline: Sept 25
+The #1 Rule
+Local & Hybrid
+Every project's AI inference must run on the event's ZGX Nano — not on personal laptops or cloud AI APIs. This is the core principle that makes SJSUHack different.
+
+🖥️
+HP ZGX Nano GB10
+All teams connect to our on-site HP ZGX Nano powered with NVIDIA Grace Blackwell (GB10) Superchip ready for LLMs, image gen, AI agents, and local model serving. No personal laptop inference.
+
+🔐
+Private by Default
+Data never leaves the room. Local inference means zero cloud exposure — better privacy, lower latency, no API costs.
+
+⚡
+Hybrid is OK Too
+Your AI inference must be local — but cloud tools for slides, video, and design (Canva, Figma, Loom) are welcome.
+
+🤖 Local LLMs
+🎨 Image Generation
+🔐 Private Inference
+⚡ ZGX Nano Pool
+🚫 No Cloud AI Inference
+✅ Hybrid Allowed
+
+
+Local Agentic Systems
+Build autonomous AI agents that reason, plan, and act — entirely on local or hybrid infrastructure. Your agent runs on our ZGX Nano using multi-step reasoning and tool-use, with zero dependency on cloud AI APIs. This is the core track: pure local intelligence.
+
+Agent must run on the event's ZGX Nano (local or hybrid)
+Local or hybrid inference only — no cloud AI API calls for core reasoning
+Multi-step reasoning or tool-use required (not just single-turn chat)
+Agent should complete a real, useful task autonomously
+Demonstrate at least one agentic loop with tool calls in the live demo
+🔐
+Secure AI
+AI security is the next frontier. Build systems that protect AI models from adversarial attacks, detect prompt injection, secure multi-user inference on ZGX Nano, or implement access controls for locally-deployed LLMs. Create reasoning logic to identify, alert, amend, and monitor patches. Pit different models against each other to change vectors and assess how different models and agent harnesses navigate security issues.
+
+Project must address AI security — model, inference, or deployment layer
+Local or hybrid architecture required — demonstrate on the ZGX Nano
+Show a real attack vector and your mitigation strategy
+Include a threat model in your pitch documentation
+⚡
+AI-Powered Productivity
+Build tools that amplify human productivity using AI — smart assistants, workflow automation, knowledge management, or intelligent collaboration. All inference models are served on the ZGX Nano, or add routing logic to offload complex non-private tasks to the cloud, ensuring speed, privacy, and offline capability as the priority.
+
+AI inference must run on the event's ZGX Nano (local or hybrid) — no cloud AI APIs
+Clear productivity use case with measurable user benefit
+Working prototype with a real-world workflow demo
+Explore when productivity work should offload to the cloud
+🌐
+AI for Community Impact
+Build AI applications that address real community needs — in healthcare, education, accessibility, or public services. Projects must run locally or on the ZGX Nano, keeping data private and infrastructure independent of third-party cloud APIs.
+
+Must run fully local or on the event's ZGX Nano
+No reliance on external paid AI APIs (OpenAI, Gemini, etc.)
+Addresses a real community or social problem
+Include a live local demo and brief impact statement
+🎨
+Generative AI & Creative Tech
+Explore the creative frontier of generative AI — text, images, audio, and multimodal experiences — with your AI models running on the event's ZGX Nano (local or hybrid). No cloud AI inference. Just raw local compute and creativity.
+
+Generative model must run locally or on the ZGX Nano
+Novel creative application — art, music, storytelling, or interactive experience
+User-facing interface or interactive demo required
+Document your model selection and why it runs well on the ZGX Nano
+⚖️
+Responsible AI & Ethics
+Design AI systems that are transparent, fair, and accountable. AI running on our ZGX Nano is inherently more privacy-preserving — use that to your advantage. Build bias detection tools, explainability frameworks, or auditing systems for locally-run models.
+
+Focus on fairness, transparency, explainability, or data privacy
+Local/hybrid architecture is required — data stays on the event's ZGX Nano or hybrid setup
+Include documentation on ethical design decisions made
+Demonstrate how local inference reduces privacy or bias risks vs cloud AI
