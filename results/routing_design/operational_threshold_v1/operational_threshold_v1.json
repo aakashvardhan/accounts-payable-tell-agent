@@ -1,0 +1,22 @@
+{
+ "acceptance_status": "APPROVED_FOR_DEMO_ROUTING",
+ "artifact": "tell_routing_operational_v1",
+ "comparison_operator": "route_to_agent_s iff risk_score >= threshold",
+ "created_at": "2026-09-24T14:26:11.069250+00:00",
+ "designation": "secondary_operational_threshold",
+ "disclosure": "This threshold was selected from the probe validation split AFTER the primary held-out test result (AUROC 0.841, AUPRC 0.866, recall 0.95, FPR 0.72 at threshold 0.1708) was already known. It is a post-hoc operational routing setting chosen to reduce Agent-S false-alarm volume, NOT a re-run of the pre-registered validation-only threshold-selection contract that produced 0.1708. It must never be presented as the original unbiased primary threshold, and it does not change, rescale, retrain, or supersede the frozen probe, its layer, its C, or its primary metrics.",
+ "fpr_constraint": "validation_fpr <= 0.20",
+ "frozen_C": 0.01,
+ "frozen_layer": 27,
+ "frozen_probe_hash": "495649cf993ad176c8cb68e73c9d057d485f98ca7c8fb66b9d4dda5e4129f3c9",
+ "primary_threshold_display": 0.1708,
+ "primary_threshold_unchanged": 0.1708046793937683,
+ "prohibition": "Do not present this threshold as the pre-registered primary result, and do not use test/OOD performance at this threshold to retroactively justify it -- it was chosen from validation alone before those numbers were consulted.",
+ "selected_operational_threshold": 0.5134634443863925,
+ "validation_fpr": 0.2,
+ "validation_precision": 0.7619047619047619,
+ "validation_prediction_hash": "2018d07f7650ae191a4ea6da1c031583c81765021364d0b9303dd4d4d169c8ac",
+ "validation_recall": 0.64,
+ "validation_routing_rate": 0.42,
+ "validation_selection_rule": "max validation recall subject to validation FPR <= 0.20; ties broken by (higher recall, lower FPR, higher precision, higher threshold); selected from validation only, test/OOD never inspected during selection"
+}

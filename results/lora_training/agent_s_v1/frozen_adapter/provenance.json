@@ -1,0 +1,5 @@
+{
+ "source_checkpoint": "/home/hp5/tell/results/lora_training/agent_s_v1/checkpoints/step_000621_epoch_end",
+ "selection_report": "checkpoint_selection_report.json",
+ "resolved_training_config_sha256": "16a90ef724539fdc58f2365789a611562bc05e67f2a8c75b75ec4487384841fa"
+}
